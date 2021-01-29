@@ -1,6 +1,5 @@
 
 
-
 document.getElementById('title').addEventListener('change', function() {
   if (this.value === 'other') {
     otherJobRole.style.display = "block";
@@ -11,6 +10,8 @@ document.getElementById('title').addEventListener('change', function() {
     otherJobRole.style.display = "none";
   }
 });
+
+document.getElementById('color').disabled = true;
 
 
 // const jobTitles = document.getElementById('title');
