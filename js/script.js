@@ -11,7 +11,14 @@ document.getElementById('title').addEventListener('change', function() {
   }
 });
 
+// Turns off the t-shirt color options dropdown menu
 document.getElementById('color').disabled = true;
+
+document.getElementById('design').addEventListener('change', function() {
+  document.getElementById('color').disabled = false;
+
+})
+
 
 
 // const jobTitles = document.getElementById('title');
