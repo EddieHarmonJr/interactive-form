@@ -35,11 +35,26 @@ designDropDown.addEventListener('change', e => {
   let designChoice = e.target.value;
 
   if (designChoice === 'js puns') {
-    console.log(colorDropDown.value);
+    //PROGRESS
+    for (let i = 0; i < colorDropDown.length; i++) {
+      let punShirts = colorDropDown[i].dataset.theme === 'js puns';
+      let heartShirts = colorDropDown[i].dataset.theme === 'heart js';
+      if (colorDropDown[i].dataset.theme === 'heart js') {
+        colorDropDown[i].disabled = true;
+      }
+    }
+    // console.log(colorDropDown.value);
   }
 
    if (designChoice === 'heart js') {
-    console.log(colorDropDown[2]);
+    for (let i = 0; i < colorDropDown.length; i++) {
+      if (colorDropDown[i].dataset.theme === 'js puns') {
+        colorDropDown[i].disabled = true;
+      }
+    }
+
+    // console.log(colorDropDown[2].dataset.theme);
+
   }
 });
 
