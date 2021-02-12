@@ -1,26 +1,80 @@
+const designDropDown = document.getElementById('design');
+const colorDropDown = document.getElementById('color');
+const otherJobRole = document.getElementById("other-job-role");
+const jobTitles = document.getElementById('title');
 
 
-document.getElementById('title').addEventListener('change', function() {
+jobTitles.addEventListener('change', function () {
   if (this.value === 'other') {
     otherJobRole.style.display = "block";
     // console.log('You selected: ', this.value);
-  } 
+  }
 
   if (this.value !== 'other') {
     otherJobRole.style.display = "none";
   }
 });
 
-// Turns off the t-shirt color options dropdown menu
-document.getElementById('color').disabled = true;
+// Places t-shirt color menu inside variable & Turns off the t-shirt color options dropdown menu
+colorDropDown.disabled = true;
 
-document.getElementById('design').addEventListener('change', function() {
-  document.getElementById('color').disabled = false;
+// console.log(document.getElementById('color').options);
 
+
+// This function adds a listener to the Design dropdown menu. 
+// When it changes, it activates the t-shirt menu and gives the
+// appropriate choices
+designDropDown.addEventListener('change', e => {
+  colorDropDown.disabled = false;
+
+  for (let i = 0; i < colorDropDown.length; i++) {
+    let shirtOption = colorDropDown[i].value;
+    let selectedShirt = e.target.value;
+  }
+
+  let designChoice = e.target.value;
+
+  if (designChoice === 'js puns') {
+    console.log(colorDropDown.value);
+  }
+
+   if (designChoice === 'heart js') {
+    console.log(colorDropDown[2]);
+  }
+});
+
+
+
+colorDropDown.addEventListener('change', e => {
+
+  for (let i = 0; i < colorDropDown.length; i++) {
+    let shirtOption = colorDropDown[i].value;
+    let selectedShirt = e.target.value;
+
+    if (selectedShirt === shirtOption) {
+      console.log(`Your choice was ${selectedShirt} and you got ${shirtOption}`)
+    }
+  }
 })
 
 
+// if (this.value === "js puns") {
 
-// const jobTitles = document.getElementById('title');
+//   //This logic grabs only the menu items that pertain to puns
+//   const punsOptions = document.querySelectorAll('[data-theme="js puns"]');
+//   console.log(punsOptions)
+
+// }
+
+// if (this.value === "heart js") {
+
+//   //This logic grabs only the menu items that pertain to heart js
+//   const heartOptions = document.querySelectorAll('[data-theme="heart js"]')
+//   console.log(heartOptions)
+
+// }
+
 // const choices = jobTitles.querySelectorAll("option");
-const otherJobRole = document.getElementById("other-job-role");
+
+// console.log(tShirtColor[3]);
+// console.log(designDropDown[1]);
